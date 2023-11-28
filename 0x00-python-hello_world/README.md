@@ -1,1 +1,1 @@
-This id the first project for python
+This is the first project for python
