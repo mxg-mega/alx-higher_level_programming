@@ -10,19 +10,23 @@
 int check_cycle(listint_t *list)
 {
 	listint_t *current = NULL;
+	listint_t *delay = NULL;
 
-	if (list == NULL)
+	if (list == NULL || list->next == NULL)
 	{
 		return (0);
 	}
 	current = list;
-	while (current->next != NULL)
+	delay = list->next;
+	while (delay != NULL && delay->next != NULL)
 	{
-		if (current->next == list || current->next == list->next)
+		if (current == delay)
 		{
 			return (1);
 		}
+
 		current = current->next;
+		delay = delay->next->next;
 	}
 	return (0);
 }
