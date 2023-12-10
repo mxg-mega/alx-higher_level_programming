@@ -13,8 +13,7 @@ int check_cycle(listint_t *list)
 
 	if (list == NULL)
 	{
-		perror("Head of the linked list is NULL\n");
-		return (1);
+		return (0);
 	}
 	current = list;
 	while (current->next != NULL)
