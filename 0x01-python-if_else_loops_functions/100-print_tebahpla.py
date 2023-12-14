@@ -1,12 +1,11 @@
 #!/usr/bin/python3
 for i in range(26):
-    l = ord('z')
-    if l <= ord('z') and l >= ord('a'):
+    letter = ord('z')
+    if letter <= ord('z') and letter >= ord('a'):
         if (i % 2) == 0:
-            l -= i
+            letter -= i
         else:
-            l -= i
-            l -= 32
+            letter -= i
+            letter -= 32
 
-        print("{}".format(chr(l)), end='')
-    
+        print("{}".format(chr(letter)), end='')
