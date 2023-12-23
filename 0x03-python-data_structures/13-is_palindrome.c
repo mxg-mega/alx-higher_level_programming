@@ -9,6 +9,8 @@ int list_len(listint_t *head);
   * @head: head of the linked list
   *
   * Return: 0 if it is not a palindrome, 1 if it is a palindrome
+  * Description: a palindrome is an experession that shows that
+  * it can be read forward or reverse
   */
 int is_palindrome(listint_t **head)
 {
