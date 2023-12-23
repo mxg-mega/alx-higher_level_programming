@@ -14,7 +14,7 @@ int list_len(listint_t *head);
   */
 int is_palindrome(listint_t **head)
 {
-	listint_t *cmp = NULL, *cmp_num = NULL;
+	listint_t *cmp = NULL, *prev = NULL, *next = NULL;
 	int len = 0, i = 0, stop = 0, j = 0;
 
 	if (*head == NULL)
@@ -22,39 +22,40 @@ int is_palindrome(listint_t **head)
 		return (1);
 	}
 
-	len = list_len(*head) + 1;
+	len = list_len(*head);
 	if (len == 0)
 	{
 		perror("A cycle was encountered\n");
-		return (1);
+		return (-1);
 	}
-	else if (len == 1)
+	if (len == 1)
 	{
 		return (1);
 	}
-	else
-	{
-		stop = len / 2;
-	}
-	j = len - 1;
-	cmp_num = *head;
-	while (cmp_num->next != NULL && i < stop)
-	{
-		int l = 0;
 
-		cmp = *head;
-		while (l < j)
-		{
-			cmp = cmp->next;
-			l++;
-		}
-		if (cmp_num->n != cmp->n)
+	stop = len / 2;
+	j = len - 1;
+	cmp = *head;
+	while (i < stop)
+	{
+		next = cmp->next;
+		cmp->next = prev;
+		prev = cmp;
+		cmp = next;
+		i++;
+	}
+	if (len % 2 != 0)
+	{
+		cmp = cmp->next;
+	}
+	while (prev != NULL && cmp != NULL)
+	{
+		if (prev->n != cmp->n)
 		{
 			return (0);
 		}
-		cmp_num = cmp_num->next;
-		i++;
-		j--;
+		prev = prev->next;
+		cmp = cmp->next;
 	}
 	return (1);
 }
@@ -66,27 +67,26 @@ int is_palindrome(listint_t **head)
   */
 int list_len(listint_t *head)
 {
-	listint_t *current = NULL, *fast = NULL;
-	int i;
+	listint_t *current = NULL, *fast = NULL, *slow = NULL;
+	int length;
 
-	if (head == NULL)
+	slow = head;
+	fast = head;
+	while (fast != NULL && fast->next != NULL)
 	{
-		return (0);
-	}
-
-	i = 0;
-	current = head;
-	fast = head->next;
-	while (current->next != NULL)
-	{
-		if (current == fast)
+		slow = slow->next;
+		fast = fast->next->next;
+		if (slow == fast)
 		{
 			return (0);
 		}
-
-		i++;
-		current = current->next;
-		fast = fast->next;
 	}
-	return (i);
+	length = 0;
+	current = head;
+	while (current->next != NULL)
+	{
+		length++;
+		current = current->next;
+	}
+	return (length);
 }
