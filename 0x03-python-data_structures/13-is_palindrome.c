@@ -15,14 +15,14 @@ int list_len(listint_t *head);
 int is_palindrome(listint_t **head)
 {
 	listint_t *cmp = NULL, *prev = NULL, *next = NULL;
-	int len = 0, i = 0, stop = 0, j = 0;
+	int len = 0, i = 0, stop = 0;
 
 	if (*head == NULL)
 	{
 		return (1);
 	}
 
-	len = list_len(*head);
+	len = list_len(*head) + 1;
 	if (len == 0)
 	{
 		perror("A cycle was encountered\n");
@@ -34,7 +34,6 @@ int is_palindrome(listint_t **head)
 	}
 
 	stop = len / 2;
-	j = len - 1;
 	cmp = *head;
 	while (i < stop)
 	{
