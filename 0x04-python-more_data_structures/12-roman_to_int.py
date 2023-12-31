@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 def roman_to_int(roman_string):
-    if roman_string is None:
+    if roman_string is None or type(roman_string) != str:
         return 0
     units_dict = {"I":1, "II":2, "III":3, "IV":4, "V":5, "VI":6, "VII":7, "VIII":8, "IX":9}
     tens_dict = {"X":10, "XX":20, "XXX":30, "XL":40, "L":50, "LX":60, "LXX":70, "LXXX":80, "XC":90}
