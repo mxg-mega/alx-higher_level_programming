@@ -1,11 +1,13 @@
 #!/usr/bin/python3
-"""The Square Class"""
+"""The Square Class
+
+    Attributes:
+        __size (int): size of the square
+"""
 
 
 class Square():
-    """ DocString of the Square class
-    Attributes:
-        __size (int): size of the square
+    """ __init__ initializes the square class 
     Args:
         size (int): size of the sqaure
     Raises:
