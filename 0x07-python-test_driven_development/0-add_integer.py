@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 
+
 def add_integer(a, b=98):
+
     """ add_integer function
     returns the sum of two integers
 
@@ -12,8 +14,14 @@ def add_integer(a, b=98):
     Exceptions:
         TypeError: if either numbers is an integer
     """
-    if (type(a) is not int):
+    if not isinstance(a, (int, float)):
         raise TypeError("a must be an integer")
-    elif type(b) is not int:
+    if not isinstance(b, (float, int)):
         raise TypeError("b must be an integer")
-    return a + b
+
+    return int(a) + int(b)
+
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testfile("tests/0-add_integer.txt")
