@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""In this module we write an addition
+   function and writing a doctest
+"""
 
 
 def add_integer(a, b=98):
@@ -14,9 +17,9 @@ def add_integer(a, b=98):
     Exceptions:
         TypeError: if either numbers is an integer
     """
-    if not isinstance(a, (int, float)):
+    if not isinstance(a, (int, float)) or a is None:
         raise TypeError("a must be an integer")
-    if not isinstance(b, (float, int)):
+    if not isinstance(b, (int, float)) or b is None:
         raise TypeError("b must be an integer")
 
     return int(a) + int(b)
