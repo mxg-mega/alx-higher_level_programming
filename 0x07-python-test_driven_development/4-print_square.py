@@ -4,7 +4,14 @@
 
 
 def print_square(size):
-    if not isinstance(size, (int, float)) or (type(size) is float and size < 0):
+    """ function prints a square using #
+        of size size
+
+        Args:
+            size(int, float): size of square
+    """
+    if not isinstance(size,
+                      (int, float)) or (type(size) is float and size < 0):
         raise TypeError("size must be an integer")
     if size < 0:
         raise ValueError("size must be >= 0")
@@ -18,4 +25,3 @@ def print_square(size):
         for j in range(s):
             print("#", end='')
         print()
-    
