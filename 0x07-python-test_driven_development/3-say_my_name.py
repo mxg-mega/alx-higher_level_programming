@@ -4,7 +4,7 @@
 """
 
 
-def say_my_name(first_name, last_name=""):
+def say_my_name(first_name="", last_name=""):
     """ function prints out
     'My name <first_name> <last_name>>'
 
