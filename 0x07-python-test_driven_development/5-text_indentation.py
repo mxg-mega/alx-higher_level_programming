@@ -2,7 +2,7 @@
 """ functions that indents texts """
 
 
-def text_indentation(text):
+def text_indentation(text=''):
     """ function prints text indented with two line if
         it encounters . ? or :
         Args:
@@ -24,6 +24,6 @@ def text_indentation(text):
             string = ''
         else:
             string += text[i]
-    while string[0] == ' ':
+    while string and string[0] == ' ':
         string = string[1:]
     print(string, end='')
