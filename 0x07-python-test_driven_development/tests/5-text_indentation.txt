@@ -1,0 +1,15 @@
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+>>> text_indentation("""Abubakar, are you there ? my little brother is busy. we should give him: a break: a tissue""")
+Abubakar, are you there ?
+<BLANKLINE>
+my little brother is busy.
+<BLANKLINE>
+we should give him:
+<BLANKLINE>
+a break:
+<BLANKLINE>
+a tissue
+>>> text_indentation(None)
+Traceback (most recent call last):
+    ...
+TypeError: text must be a string
