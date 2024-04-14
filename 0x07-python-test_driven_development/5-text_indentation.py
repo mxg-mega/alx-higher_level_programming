@@ -14,6 +14,8 @@ def text_indentation(text=''):
     indent_marks = ['.', '?', ':']
     string = ''
 
+    if text == '':
+        print()
     for i in range(len(text)):
         if text[i] in indent_marks:
             string += text[i] + "\n\n"
