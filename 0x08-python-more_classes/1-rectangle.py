@@ -4,9 +4,9 @@
 
 class Rectangle:
     """ initialization function for class rectangle """
-    def __init__(self, width=0, heigth=0):
+    def __init__(self, width=0, height=0):
         self.__width = width
-        self.__height = heigth
+        self.__height = height
 
     @property
     def width(self):
@@ -29,13 +29,13 @@ class Rectangle:
         self.__width = value
 
     @property
-    def heigth(self):
+    def height(self):
         """ getter for variable heigth"""
-        return self.__heigth
+        return self.__height
 
-    @heigth.setter
-    def heigth(self, value):
-        """ setter for heigth
+    @height.setter
+    def height(self, value):
+        """ setter for height
             Args:
                value(int): value to set
             Exceptions:
@@ -46,4 +46,4 @@ class Rectangle:
             raise TypeError("height must be an integer")
         if value < 0:
             raise ValueError("height must be >= 0")
-        self.__heigthh = value
+        self.__height = value
