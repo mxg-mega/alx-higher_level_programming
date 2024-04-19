@@ -14,8 +14,3 @@ class MyList(list):
         else:
             dup = sorted(self)
             print(dup)
-
-    """ the __str__ will return a duplicate of the instance
-    """
-    def __str__:
-        return self[:]
