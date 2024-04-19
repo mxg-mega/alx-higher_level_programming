@@ -10,7 +10,8 @@ class MyList(list):
     """
     def print_sorted(self):
         if len(self) == 0:
-            print([])
+            return []
         else:
             dup = sorted(self)
             print(dup)
+            return []
