@@ -10,6 +10,7 @@
 >>> my_list_2 = MyList()
 >>> my_list_2.print_sorted()
 []
+[]
 >>> my_list_2.append(1)
 >>> my_list_2.append(45)
 >>> my_list_2.append(-99)

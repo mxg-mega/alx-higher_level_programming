@@ -9,8 +9,10 @@ class MyList(list):
             self(list): the instance itself is a list
     """
     def print_sorted(self):
+        dup = []
         if len(self) == 0:
-            return []
+            print(dup)
+            return dup
         else:
             dup = sorted(self)
             print(dup)
