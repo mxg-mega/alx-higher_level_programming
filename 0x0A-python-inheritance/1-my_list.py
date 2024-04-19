@@ -7,8 +7,15 @@ class MyList(list):
         as a list in a sorted manner
         Args:
             self(list): the instance itself is a list
-        raises:
-            
     """
     def print_sorted(self):
-        print(sorted(self))
+        if len(self) == 0:
+            print([])
+        else:
+            dup = sorted(self)
+            print(dup)
+
+    """ the __str__ will return a duplicate of the instance
+    """
+    def __str__:
+        return self[:]
