@@ -17,7 +17,7 @@ class BaseGeometry:
             TypeError: name must be an integer
             ValueError: name must be greater than 0
     """
-    def integer_validator(self, name='', value=0):
+    def integer_validator(self, name='', value=1):
         if type(value) is not int:
             raise TypeError("{} must be an integer".format(str(name)))
         if value <= 0:
