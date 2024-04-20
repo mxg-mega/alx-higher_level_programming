@@ -15,7 +15,7 @@ class Rectangle(BaseGeometry):
                 function.
             ValueError: this is from the validator function
     """
-    def __init__(self, width, height):
+    def __init__(self, width=0, height=0):
         self.integer_validator("width", width)
         self.integer_validator("height", height)
         self.__width = width
