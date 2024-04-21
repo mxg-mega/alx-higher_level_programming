@@ -14,7 +14,8 @@ data = []
 try:
     loadInfo = load_from_json_file(filename)
 except:
-    save_to_json_file(data, filename)
+    loadInfo = []
+    save_to_json_file(loadInfo, filename)
 
 if len(args) != 1:
     data = loadInfo[:]
