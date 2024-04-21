@@ -13,7 +13,7 @@ data = []
 
 try:
     loadInfo = load_from_json_file(filename)
-except:
+except Exception as e:
     loadInfo = []
     save_to_json_file(loadInfo, filename)
 
