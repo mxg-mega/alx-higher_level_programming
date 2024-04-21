@@ -18,7 +18,7 @@ except Exception as e:
     save_to_json_file(loadInfo, filename)
 
 if len(args) != 1:
-    data = loadInfo[:]
+    data = loadInfo
     for i in range(1, len(args)):
         data.append(args[i])
     save_to_json_file(data, filename)
