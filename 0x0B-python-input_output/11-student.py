@@ -39,11 +39,9 @@ class Student:
         return attrsLookup
 
     def reload_from_json(self, json):
-        """ function reloads  that replaces all attributes of the Student instance
+        """ function that replaces all attributes of the Student instance
             Args:
                 json: data to reload to json
         """
-        loadData = {}
         for i in json:
-            loadData[i] = json[i]
-        return loadData
+            self.__dict__[i] = json[i]
