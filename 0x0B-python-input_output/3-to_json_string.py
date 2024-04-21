@@ -2,6 +2,7 @@
 """ to_json_strin funtion """
 json = __import__('json')
 
+
 def to_json_string(obj):
     """ function returns the JSON representation of an object (string)
 
