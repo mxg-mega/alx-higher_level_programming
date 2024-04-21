@@ -14,5 +14,5 @@ def class_to_json(obj):
         Return:
             a dictionary representation
     """
-    attributeDict =  obj.__dict__
+    attributeDict = obj.__dict__
     return attributeDict
