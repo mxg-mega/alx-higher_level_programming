@@ -21,7 +21,6 @@ def pascal_triangle(n):
     for i in range(1, (n + 1)):
         part = []
         for j in range(i):
-            print(j)
             if len(part) == 0 or j == (i - 1):
                 part.append(1)
             else:
