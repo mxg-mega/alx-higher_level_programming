@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ Recatangle Class"""
-Base = __import__('Base')
+from models.base import Base
 
 
 class Rectangle(Base):
@@ -14,12 +14,12 @@ class Rectangle(Base):
         y(int): y
         id(int): id of object
     """
-    def __init__(self, width, height, x=0, y=0, id=None):
+    def __init__(self, width=0, height=0, x=0, y=0, id=None):
+        super().__init__(id)
         self.__width = width
         self.__height = height
         self.__x = x
         self.__y = y
-        super().__init__(id)
 
     @property
     def width(self):
@@ -29,6 +29,8 @@ class Rectangle(Base):
     @width.setter
     def width(self, value):
         """ Setter for width """
+        if type(value) is not int:
+            raise TypeError("Value of width must be an integer")
         self.__width = value
 
     @property
@@ -39,6 +41,8 @@ class Rectangle(Base):
     @height.setter
     def height(self, value):
         """ Setter for height """
+        if type(value) is not int:
+            raise TypeError("Value of height must be an integer")
         self.__height = value
 
     @property
@@ -49,6 +53,8 @@ class Rectangle(Base):
     @x.setter
     def x(self, value):
         """ Setter for x """
+        if type(value) is not int:
+            raise TypeError("Value of x must be an integer")
         self.__x = value
 
     @property
@@ -59,4 +65,6 @@ class Rectangle(Base):
     @y.setter
     def y(self, value):
         """ Setter for y """
+        if type(value) is not int:
+            raise TypeError("Value of y must be an integer")
         self.__y = value
