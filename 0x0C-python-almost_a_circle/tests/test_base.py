@@ -1,16 +1,27 @@
 #!/usr/bin/python3
-unittest = __import__("unittest")
+import unittest
 from models.base import Base
 
 
-class TestBase(unittest.TestCase):
-    def test_ID_creation(self):
-        b1 = Base()
+class TestBase_instantiation(unittest.TestCase):
+    """Test case for Base class"""
+
+    def test_auto_id(self):
+        """Test Base class id management"""
         b2 = Base()
-        b3 = Base(13)
-        self.assertEqual(b1.id, 1)
         self.assertEqual(b2.id, 2)
-        self.assertEqual(b3.id, 13)
+
+        b3 = Base()
+        self.assertEqual(b3.id, 3)
+
+    def test_custom_id(self):
+        b1 = Base(12)
+        self.assertEqual(b1.id, 12)
+
+    def test_None(self):
+        b1 = Base(None)
+        self.assertEqual(b1.id, 1)
+
 
 
 if __name__ == "__main__":
