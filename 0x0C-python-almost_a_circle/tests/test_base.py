@@ -38,11 +38,11 @@ class TestRecangle_instantiation(unittest.TestCase):
         self.assertEqual(r3.id, 6)
 
     def test_custom_id(self):
-        r1 = Rectangle(0, 0, 0, 0, 12)
+        r1 = Rectangle(1, 1, 0, 0, 12)
         self.assertEqual(r1.id, 12)
 
     def test_None(self):
-        r1 = Rectangle(0, 0, 0, 0, None)
+        r1 = Rectangle(1, 1, 0, 0, None)
         self.assertEqual(r1.id, 4)
 
     def test_attributes(self):
@@ -54,7 +54,7 @@ class TestRecangle_instantiation(unittest.TestCase):
         self.assertEqual(r1.height, 5)
 
     def test_getter_setter(self):
-        r1 = Rectangle(0, 0, 0, 0, 45)
+        r1 = Rectangle(1, 1, 0, 0, 45)
         r1.width = 23
         self.assertEqual(r1.width, 23)
         r1.height = 12
@@ -66,16 +66,16 @@ class TestRecangle_instantiation(unittest.TestCase):
 
     def test_raises(self):
         with self.assertRaises(ValueError):
-            r1 = Rectangle(-1, 0, 0, 0, 0)
-            r2 = Rectangle(0, -1, 0, 0, 0)
-            r3 = Rectangle(0, 0, -1, 0, 0)
-            r4 = Rectangle(0, 0, 0, -1, 0)
+            r1 = Rectangle(-1, 1, 0, 0, 0)
+            r2 = Rectangle(1, -1, 0, 0, 0)
+            r3 = Rectangle(1, 1, -1, 0, 0)
+            r4 = Rectangle(1, 1, 0, -1, 0)
 
         with self.assertRaises(TypeError):
-           r1 = Rectangle("0", 0, 0, 0, 0)
-           r2 = Rectangle(0, "height", 0, 0, 0)
-           r3 = Rectangle(0, 0, "x", 0, 0)
-           r4 = Rectangle(0, 0, 0, "y", 0)
+           r1 = Rectangle("0", 1, 0, 0, 0)
+           r2 = Rectangle(1, "height", 0, 0, 0)
+           r3 = Rectangle(1, 1, "x", 0, 0)
+           r4 = Rectangle(1, 1, 0, "y", 0)
 
 
 
