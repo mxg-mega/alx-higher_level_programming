@@ -7,7 +7,7 @@ class Square(Rectangle):
     """ class Square inherits from class
         Rectangle
     """
-    def __init__(self, size, x=0, y=0, id=None):
+    def __init__(self, size=1, x=0, y=0, id=None):
         """ __init__ instantiates the class
             All attribute operations are inherited
         """
