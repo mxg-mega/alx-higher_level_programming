@@ -39,6 +39,22 @@ class Base:
         json_string = json.dumps(list_dictionaries)
         return json_string
 
+    @staticmethod
+    def from_json_string(json_string):
+        """ The static method from_json_string
+            that returns the list of the JSON string
+            representation json_string
+
+            Args:
+                json_string: string to load from json format
+
+            Returns:
+                converted json string
+        """
+        if json_string is None:
+            return []
+        return json.loads(json_string)
+
     @classmethod
     def save_to_file(cls, list_objs):
         """ The class method save_to_file that writes
