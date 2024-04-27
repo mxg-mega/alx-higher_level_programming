@@ -64,8 +64,6 @@ class Square(Rectangle):
                 elif i == 3:
                     self.y = args[i]
                     break
-        
-
 
     def __str__(self):
         """ Over ridding the str method for Square
