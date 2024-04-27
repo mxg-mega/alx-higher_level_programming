@@ -34,10 +34,8 @@ class Base:
                 list_dictionaries(list): the data to
                                          convert to json format
         """
-        if type(list_dictionaries) is not list:
-            raise TypeError("Data must be a list of dictionaries")
         if list_dictionaries is None:
-            return []
+            return "[]"
         json_string = json.dumps(list_dictionaries)
         return json_string
 
