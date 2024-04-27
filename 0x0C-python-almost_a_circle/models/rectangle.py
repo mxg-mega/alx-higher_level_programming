@@ -113,9 +113,29 @@ class Rectangle(Base):
             print(" " * self.__x, end='')
             print(("#" * self.__width))
 
+    def update(self, *args):
+        """ Update the class Rectangle by adding the public method 'update'
+            that assigns an argument to each attribute.
+
+            Args:
+                args: A variable number of arguments representing the
+                      attributes in the order id, width, height, x, and y.
+        """
+        attribute_names = {'width': '_Rectangle__width',
+                           'height': '_Rectangle__height',
+                           'x': '_Rectangle__x',
+                           'y': '_Rectangle__y'}
+
+        for attr, value in zip(attribute_names.keys(), args):
+            if not isinstance(value, int):
+                raise TypeError("{} must be an integer".format(attr))
+            if value < 0 and attr in attribute_names:
+                raise ValueError("{} must be >= 0".format(attr))
+            setattr(self, attribute_names[attr], value)
+
     def __str__(self):
         """ modified str returns this format
-            '[Rectangle] (<id>) <x>/<y> - <width>/<height>'
+           '[Rectangle] (<id>) <x>/<y> - <width>/<height>'
         """
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
                                                        self.__x,
