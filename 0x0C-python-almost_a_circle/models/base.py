@@ -56,6 +56,19 @@ class Base:
         return json.loads(json_string)
 
     @classmethod
+    def create(cls, **dictionary):
+        """ The class method create
+            that returns an instance with all attributes
+            already set
+
+            Args:
+                dictionary(dict): a double pointer to a dictionary
+        """
+        cls_dummy = cls()
+        cls_dummy.update(dictionary)
+        return cls_dummy
+
+    @classmethod
     def save_to_file(cls, list_objs):
         """ The class method save_to_file that writes
             the JSON string representation of list_objs to a file
