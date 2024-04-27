@@ -89,3 +89,23 @@ class Base:
 
         with open("{}.json".format(cls.__name__), "w") as sf:
             sf.write(cls.to_json_string(objs))
+
+    @classmethod
+    def load_from_file(cls):
+        """ The class method load_from_file eturns a list of instances
+
+            Args:
+                cls: the class to return its instances
+
+            Returns:
+                list loaded from a file
+        """
+        objs = []
+        filename = "{}.json".format(cls.__name__)
+        try:
+            with open(filename, "r") as lfile:
+                loaded = from_json_string(lfile.read())
+        except Exception as e:
+            return objs
+        for i in loaded:
+            objs.append(cls.create(**i))
