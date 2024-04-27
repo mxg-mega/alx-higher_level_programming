@@ -11,18 +11,18 @@ class Base:
     """
     __nb_objects = 0
 
-    """ __init__ instantiates the class
-
-        Args:
-            id(int): id of an object,
-            initialized to None.
-    """
     def __init__(self, id=None):
-        if id is not None:
-            self.id = id
-        else:
+        """ __init__ instantiates the class
+
+            Args:
+                id(int): id of an object,
+                initialized to None.
+        """
+        if id is None:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+        else:
+            self.id = id
 
     @staticmethod
     def to_json_string(list_dictionaries):
@@ -63,9 +63,11 @@ class Base:
 
             Args:
                 dictionary(dict): a double pointer to a dictionary
+            Returns:
+                New created instance
         """
-        cls_dummy = cls()
-        cls_dummy.update(dictionary)
+        cls_dummy = cls(1, 1, 0, 0, 234)
+        cls_dummy.update(**dictionary)
         return cls_dummy
 
     @classmethod

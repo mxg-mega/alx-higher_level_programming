@@ -133,16 +133,9 @@ class Rectangle(Base):
         length = len(args)
         if length == 0:
             for name, value in kwargs.items():
-                if name == "id":
-                    self.id = value
-                elif name == "width":
-                    self.__width = value
-                elif name == "height":
-                    self.__height = value
-                elif name == "x":
-                    self.__x = value
-                elif name == "y":
-                    self.__y = value
+                if not hasattr(self, name):
+                    continue
+                setattr(self, name, value)
         else:
             for i in range(length):
                 if i == 0:
