@@ -49,5 +49,9 @@ class Base:
                 list_objs: is a list of instances who inherits
                            of base.
         """
+        objs = []
+        for i in list_objs:
+            objs.append(i.to_dictionary())
+
         with open("{}.json".format(cls.__name__), "w") as sf:
-            sf.write(cls.to_json_string(list_objs))
+            sf.write(cls.to_json_string(objs))
