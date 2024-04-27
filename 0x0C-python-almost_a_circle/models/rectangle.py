@@ -121,17 +121,19 @@ class Rectangle(Base):
                 args: A variable number of arguments representing the
                       attributes in the order id, width, height, x, and y.
         """
-        attribute_names = {'width': '_Rectangle__width',
-                           'height': '_Rectangle__height',
-                           'x': '_Rectangle__x',
-                           'y': '_Rectangle__y'}
-
-        for attr, value in zip(attribute_names.keys(), args):
-            if not isinstance(value, int):
-                raise TypeError("{} must be an integer".format(attr))
-            if value < 0 and attr in attribute_names:
-                raise ValueError("{} must be >= 0".format(attr))
-            setattr(self, attribute_names[attr], value)
+        length = len(args)
+        for i in range(length):
+            if i == 0:
+                self.id = args[i]
+            elif i == 1:
+                self.__width = args[i]
+            elif i == 2:
+                self.__height = args[i]
+            elif i == 3:
+                self.__x = args[i]
+            elif i == 4:
+                self.__y = args[i]
+                break
 
     def __str__(self):
         """ modified str returns this format
