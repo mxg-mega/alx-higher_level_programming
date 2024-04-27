@@ -120,8 +120,7 @@ class Rectangle(Base):
             Args:
                 args: A variable number of arguments representing the
                       attributes in the order id, width, height, x, and y.
-        """
-        
+        """ 
         length = len(args)
         if length == 0:
             for name, value in kwargs.items():
