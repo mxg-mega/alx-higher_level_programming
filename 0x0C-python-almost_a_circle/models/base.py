@@ -36,7 +36,7 @@ class Base:
         """
         if type(list_dictionaries) is not list:
             raise TypeError("Data must be a list of dictionaries")
-        if list_dictionaries == None:
+        if list_dictionaries is None:
             return "[]"
         json_string = json.dumps(list_dictionaries)
         return json_string
