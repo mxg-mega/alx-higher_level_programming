@@ -28,6 +28,44 @@ class Square(Rectangle):
         self.width = value
         self.height = value
 
+    def update(self, *args, **kwargs):
+        """ Update method updates the value of
+            the attribites
+
+            Args:
+            *args is the list of arguments - no-keyworded arguments
+                 1st argument should be the id attribute
+                 2nd argument should be the size attribute
+                 3rd argument should be the x attribute
+                 4th argument should be the y attribute
+        """
+        length = len(args)
+        if length == 0:
+            for name, value in kwargs.items():
+                if name == "id":
+                    self.id = value
+                elif name == "width" or name == "height":
+                    self.size(value)
+                elif name == "x":
+                    self.x = value
+                elif name == "y":
+                    self.y = value
+                    break
+        else:
+            for i in range(length):
+                if i == 0:
+                    self.id = args[i]
+                elif i == 1:
+                    self.width = args[i]
+                    self.height = args[i]
+                elif i == 2:
+                    self.x = args[i]
+                elif i == 3:
+                    self.y = args[i]
+                    break
+        
+
+
     def __str__(self):
         """ Over ridding the str method for Square
         """
