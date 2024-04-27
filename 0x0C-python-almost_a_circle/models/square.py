@@ -45,7 +45,8 @@ class Square(Rectangle):
                 if name == "id":
                     self.id = value
                 elif name == "size":
-                    self.size(value)
+                    self.width = value
+                    self.height = value
                 elif name == "x":
                     self.x = value
                 elif name == "y":
