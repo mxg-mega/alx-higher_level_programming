@@ -37,6 +37,19 @@ class Base:
         if type(list_dictionaries) is not list:
             raise TypeError("Data must be a list of dictionaries")
         if list_dictionaries is None:
-            return "[]"
+            return []
         json_string = json.dumps(list_dictionaries)
         return json_string
+
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """ The class method save_to_file that writes
+            the JSON string representation of list_objs to a file
+
+            Args:
+                cls: class of objects
+                list_objs: is a list of instances who inherits
+                           of base.
+        """
+        with open("{}.json".format(cls.__name__), "w") as sf:
+            sf.write(cls.to_json_string(list_objs))
