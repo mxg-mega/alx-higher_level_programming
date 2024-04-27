@@ -28,6 +28,14 @@ class Square(Rectangle):
         self.width = value
         self.height = value
 
+    def to_dictionary(self):
+        """ public method to_dictionary
+            that returns the dictionary representation
+            of a Rectangle
+        """
+        return {"id": self.id, "size": self.width,
+                "x": self.x, "y": self.y}
+
     def update(self, *args, **kwargs):
         """ Update method updates the value of
             the attribites

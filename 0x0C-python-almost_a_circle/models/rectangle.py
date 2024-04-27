@@ -103,6 +103,15 @@ class Rectangle(Base):
         """
         return (self.__width * self.__height)
 
+    def to_dictionary(self):
+        """ public method to_dictionary
+            that returns the dictionary representation
+            of a Rectangle
+        """
+        return {"id": self.id, "width": self.__width,
+                "height": self.__height, "x": self.__x,
+                "y": self.__y}
+
     def display(self):
         """ display function prints the rectangle base on
             it parameters
