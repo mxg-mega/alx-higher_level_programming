@@ -59,7 +59,6 @@ class Square(Rectangle):
                     self.x = value
                 elif name == "y":
                     self.y = value
-                    break
         else:
             for i in range(length):
                 if i == 0:
