@@ -66,7 +66,7 @@ class Base:
             Returns:
                 New created instance
         """
-        cls_dummy = cls(1, 1, 0, 0, 234)
+        cls_dummy = cls(1, 1, 0, 0, None)
         cls_dummy.update(**dictionary)
         return cls_dummy
 
