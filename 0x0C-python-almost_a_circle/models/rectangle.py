@@ -113,7 +113,7 @@ class Rectangle(Base):
             print(" " * self.__x, end='')
             print(("#" * self.__width))
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """ Update the class Rectangle by adding the public method 'update'
             that assigns an argument to each attribute.
 
@@ -121,19 +121,33 @@ class Rectangle(Base):
                 args: A variable number of arguments representing the
                       attributes in the order id, width, height, x, and y.
         """
+        
         length = len(args)
-        for i in range(length):
-            if i == 0:
-                self.id = args[i]
-            elif i == 1:
-                self.__width = args[i]
-            elif i == 2:
-                self.__height = args[i]
-            elif i == 3:
-                self.__x = args[i]
-            elif i == 4:
-                self.__y = args[i]
-                break
+        if length == 0:
+            for name, value in kwargs.items():
+                if name == "id":
+                    self.id = value
+                elif name == "width":
+                    self.__width = value
+                elif name == "height":
+                    self.__height = value
+                elif name == "x":
+                    self.__x = value
+                elif name == "y":
+                    self.__y = value
+        else:
+            for i in range(length):
+                if i == 0:
+                    self.id = args[i]
+                elif i == 1:
+                    self.__width = args[i]
+                elif i == 2:
+                    self.__height = args[i]
+                elif i == 3:
+                    self.__x = args[i]
+                elif i == 4:
+                    self.__y = args[i]
+                    break
 
     def __str__(self):
         """ modified str returns this format
