@@ -104,7 +104,8 @@ class Base:
         filename = "{}.json".format(cls.__name__)
         try:
             with open(filename, "r") as lfile:
-                loaded = from_json_string(lfile.read())
+                content = lfile.read()
+                loaded = cls.from_json_string(content)
         except Exception as e:
             return objs
         for i in range(len(loaded)):
