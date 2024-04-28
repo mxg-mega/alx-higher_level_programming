@@ -107,5 +107,6 @@ class Base:
                 loaded = from_json_string(lfile.read())
         except Exception as e:
             return objs
-        for i in loaded:
-            objs.append(cls.create(**i))
+        for i in range(len(loaded)):
+            objs.append(cls.create(**loaded[i]))
+        return objs
