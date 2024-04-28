@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ Base Class """
 import json
+import csv
 
 
 class Base:
@@ -111,3 +112,54 @@ class Base:
         for i in range(len(loaded)):
             objs.append(cls.create(**loaded[i]))
         return objs
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """ The class method save_to_file_csv that writes
+            the CSV string representation of list_objs to a file
+
+            Args:
+                cls: class of objects
+                list_objs: is a list of instances who inherits
+                           of base.
+        """
+        if list_objs is None:
+            objs = []
+        else:
+            objs = []
+            for i in list_objs:
+                objs.append(i.to_csv_format())
+
+        with open("{}.csv".format(cls.__name__), "w") as sf:
+            csv_writer = csv.writer(sf)
+            for i in objs:
+                csv_writer.writerow(i)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """ The class method load_from_file_csv
+            returns a list of instances
+
+            Args:
+                cls: the class to return its instances
+
+            Returns:
+                list loaded from a file
+        """
+        objs = []
+        filename = "{}.csv".format(cls.__name__)
+        try:
+            with open(filename, "r", newline='', encoding="utf-8") as csvfile:
+                csv_reader = csv.reader(csvfile)
+                for line in csv_reader:
+                    try:
+                        row = [int(value) for value in line]
+                        dummy = cls()
+                        dummy.update(*row)
+                        objs.append(dummy)
+                    except Exception as e:
+                        print(e)
+            return objs
+        except Exception as e:
+            objs = []
+            return objs

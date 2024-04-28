@@ -36,6 +36,14 @@ class Square(Rectangle):
         return {"id": self.id, "size": self.width,
                 "x": self.x, "y": self.y}
 
+    def to_csv_format(self):
+        """ public method to_csv_format
+            that returns the list representation
+            of a Rectangle
+        """
+        return [self.id, self.width,
+                self.x, self.y]
+
     def update(self, *args, **kwargs):
         """ Update method updates the value of
             the attribites

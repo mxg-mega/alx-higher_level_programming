@@ -112,6 +112,14 @@ class Rectangle(Base):
                 "height": self.__height, "x": self.__x,
                 "y": self.__y}
 
+    def to_csv_format(self):
+        """ public method to_csv_format
+            that returns the list representation
+            of a Rectangle
+        """
+        return [self.id, self.__width, self.__height,
+                self.__x, self.__y]
+
     def display(self):
         """ display function prints the rectangle base on
             it parameters
