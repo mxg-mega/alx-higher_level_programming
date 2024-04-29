@@ -2,6 +2,7 @@
 """ Base Class """
 import json
 import csv
+import turtle
 
 
 class Base:
@@ -163,3 +164,39 @@ class Base:
         except Exception as e:
             objs = []
             return objs
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """ The static method draw opens a window and draws
+            all the Rectangles and Squares
+
+            Args:
+                list_rectangles: list of rects to draw
+                list_squares: list of squares to draw
+        """
+        screen = turtle.Screen()
+        t = turtle.Turtle()
+        t.pencolor("blue")
+        t.pensize(10)
+        for rectangle in list_rectangles:
+            t.penup()
+            x = rectangle.x
+            y = rectangle.y
+            t.goto(x, y)
+            for line in range(4):
+                t.pendown()
+                if line % 2 == 0:
+                    t.forward(rectangle.width)
+                else:
+                    t.forward(rectangle.height)
+                t.left(90)
+
+        for square in list_squares:
+            t.penup()
+            x = square.x
+            y = square.y
+            t.goto(x, y)
+            for line in range(4):
+                t.pendown()
+                t.forward(square.size)
+                t.left(90)
